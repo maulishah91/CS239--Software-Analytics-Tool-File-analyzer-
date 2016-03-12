@@ -1,0 +1,20 @@
+#Process input using MainModel.java to form test and train sets
+
+#Download mallet from this link : https://github.com/mimno/Mallet
+
+#Run ant on this folder from command line
+
+#Type mallet and see if it gives the commands
+
+#import train data
+bin/mallet import-file --input train.txt --output output.mallet --remove-stopwords --label-as-features --keep-sequence --line-regex '([^,]+),([^,]+),(.*)'
+
+#train model using LLDA
+bin/mallet run cc.mallet.topics.LabeledLDA --input output.mallet --output-topic-keys tm-llda.keys --output-model tm_model.txt --output-state tm_state.gz --output-doc-topics doc_topics.txt
+
+#test data import
+ bin/mallet import-file --input test.txt --output output2.mallet --remove-stopwords  --keep-sequence
+
+#topics for test data
+./bin/mallet train-topics --input output2.mallet --optimize-interval 20 --output-doc-topics train_doc_topic_ms.txt
+
