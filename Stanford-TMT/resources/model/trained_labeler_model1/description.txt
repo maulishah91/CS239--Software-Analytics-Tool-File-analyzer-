@@ -1,0 +1,2 @@
+CVB0LabeledLDA v0 [Stanford Topic Modeling Toolbox]
+CSVFile("../resources/dataset/train/labeler_in1.csv") ~> IDColumn(1) ~> Column(3) ~> TokenizeWith(SimpleEnglishTokenizer.V1() ~> CaseFolder() ~> WordsAndNumbersOnlyFilter() ~> MinimumLengthFilter(0)) ~> TermCounter() ~> TermMinimumDocumentCountFilter(1) ~> DocumentMinimumLengthFilter(1)
