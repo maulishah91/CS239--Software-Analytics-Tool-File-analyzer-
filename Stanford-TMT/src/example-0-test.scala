@@ -3,7 +3,7 @@
 
 import scalanlp.io._;
 
-val pubmed = CSVFile("pubmed-oa-subset.csv");
+val pubmed = CSVFile("../resources/dataset/train/pubmed-oa-subset.csv");
 
 println("Success: " + pubmed + " contains " + pubmed.data.size + " records");
 
